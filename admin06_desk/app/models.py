@@ -4,7 +4,7 @@ import uuid
 
 class Project(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(verbose_name='Наименование', max_length=150, db_index=True)
+    name = models.CharField(verbose_name='Наименование', max_length=150, db_index=True, unique=True)
     description = models.CharField(verbose_name='Описание', max_length=1024, blank=True, null=True, default='')
     created = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
